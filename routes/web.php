@@ -17,4 +17,5 @@ Route::get('/', function () {
 Route::get('/tracy',function (){
    return Exception('故意的錯誤');
 });
-
+Route::get('/checkage/{age}',function (){})->middleware(CheckAge::class);
+Route::get('/email',['as'=>'email','uses'=>'Controller@email']);
