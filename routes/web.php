@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,3 +18,17 @@ Route::get('/tracy',function (){
 });
 Route::get('/checkage/{age}',function (){})->middleware(CheckAge::class);
 Route::get('/email',['as'=>'email','uses'=>'Controller@email']);
+
+Route::group(['prefix'=>'login/social', 'middleware'=>['guest']],
+    function(){
+        Route::get('{provider}/redirect',[
+            'as' => 'social.redirect',
+            'uses' => 'Auth\SocialController@getSocialRedirect'
+        ]);
+        Route::get('{provider}/callback',[
+            'as' => 'social.handle',
+            'uses' => 'Auth\SocialController@getSocialCallback'
+        ]);
+    });
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

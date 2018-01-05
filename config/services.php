@@ -13,6 +13,17 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
+    'google' => [
+        'client_id' => env('42515104253-ktpj4uvib4cdgfl4fu79vus4pgrt93uj.apps.googleusercontent.com'),
+        'client_secret' => env('9HP9WbYEpd0VLFPXEJ_sEw40'),
+        'redirect' => env('http://localhost:8000/login/social/google/callback')
+    ],
+    'github' => [
+        'client_id' => env('352c1a2570de4cafe04b'),
+        'client_secret' => env('dabbfa6a1d584181f6f9a55d63b3cebe3a75347c'),
+        'redirect' => env('http:localhost:8000/login/github/callback')
+    ],
+
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
