@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/tracy',function (){
+   return Exception('故意的錯誤');
+});
+
